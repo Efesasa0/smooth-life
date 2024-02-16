@@ -5,18 +5,17 @@ from flask import Response
 from main import get_next_state
 
 HEIGHT,WIDTH = 100,100
-ORGANISM_COUNT = 10
-MASK_RATIO=0.3
-R_A=21
+ORGANISM_COUNT = 1
+MASK_RATIO=0.2
+R_A=16#21 11
 FACTOR=3
-ALPHA = 0.028
-#alpha_n = 0.028
-#alpha_m = 0.147
-B1=0.257
-B2=0.336
-D1=0.365
-D2=0.549
-DT=0.05# 0.5 0.005
+ALPHA_N = 0.028
+ALPHA_M = 0.028 # 0.147
+B1=0.278 # 0.278 0.257
+B2=0.365 # 0.365 0.336
+D1=0.267 # 0.267 0.365
+D2=0.445 # 0.445 0.549
+DT=0.05 # 0.5 0.005
 app = Flask(__name__)
 
 def create_frame(generator):
@@ -28,7 +27,7 @@ def create_frame(generator):
     return frame
 
 def generate():
-    gen = get_next_state(HEIGHT,WIDTH,R_A,FACTOR,MASK_RATIO,ALPHA,B1,B2,D1,D2,DT,ORGANISM_COUNT)
+    gen = get_next_state(HEIGHT,WIDTH,R_A,FACTOR,MASK_RATIO,ALPHA_N,ALPHA_M,B1,B2,D1,D2,DT,ORGANISM_COUNT)
     while True:
         outputFrame = create_frame(gen)
 
