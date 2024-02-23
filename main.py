@@ -6,7 +6,6 @@ np.random.seed(1)
 from smooths import sigma, sigman, sigmam, s
 from kernels import circular_kernel_pair
 
-
 def initialize_state(height, width, r_a, factor, mask_ratio, organism_count):
     b_kernel, s_kernel = circular_kernel_pair(r_a, factor)
     sim_state = np.zeros((height, width), dtype=np.float16)
@@ -47,5 +46,3 @@ def get_next_state(height ,width, r_a, factor, mask_ratio, alpha_n, alpha_m, b1,
         #plt.imshow(sim_state, cmap='gray')
         #plt.axis('off')
         #plt.savefig(f'./ims/output_image{i:06d}.jpg', bbox_inches='tight', pad_inches=0)
-
-    

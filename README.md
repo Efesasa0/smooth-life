@@ -78,3 +78,5 @@ Navigate to http://localhost:82 in your web browser to view the simulation.
 
 * Add additional kernels into calculation can change outcomes drastically.
 * Add user interaction feature for real-time parameter adjustments.
+
+You can address the flow_demo.ipynb to see the idea of a simpler version.

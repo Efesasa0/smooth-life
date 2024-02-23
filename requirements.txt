@@ -3,3 +3,4 @@ Flask
 scipy
 matplotlib
 numpy
+solara
