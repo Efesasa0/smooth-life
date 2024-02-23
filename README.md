@@ -56,8 +56,16 @@ pip install -r requirements.txt
 To run the Smooth Life simulation and start the Flask server, execute:
 
 ```console
-python flask_demo.py
+flask run
 ```
+
+Then run the solara based app on seperate terminal.
+
+```console
+solara run --theme-variant dark sol.py
+```
+
+A window will pop up displaying the interface.
 
 Navigate to http://localhost:82 in your web browser to view the simulation.
 
@@ -79,4 +87,4 @@ Navigate to http://localhost:82 in your web browser to view the simulation.
 * Add additional kernels into calculation can change outcomes drastically.
 * Add user interaction feature for real-time parameter adjustments.
 
-You can address the flow_demo.ipynb to see the idea of a simpler version.
+You can address the flow_demo.ipynb to see the idea of a simpler version
