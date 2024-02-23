@@ -18,7 +18,7 @@ def generate(r_a, factor, mask_ratio, organism_count, alpha_n, alpha_m, b1, b2, 
     gen = get_next_state(HEIGHT, WIDTH, r_a, factor, mask_ratio, alpha_n, alpha_m, b1, b2, d1, d2, dt, organism_count)
     while True:
         outputFrame = create_frame(gen)
-        scale = 12
+        scale = 1
         resized_frame = cv2.resize(outputFrame, (HEIGHT*scale, WIDTH*scale), interpolation=cv2.INTER_NEAREST)
         (flag, encodedImage) = cv2.imencode(".jpg", resized_frame)
         if not flag:
