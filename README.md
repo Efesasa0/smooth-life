@@ -1,6 +1,6 @@
 # Smooth Life 🪱
 
-![video](./assets/video.mov)
+https://github.com/Efesasa0/smooth-life/assets/70029284/7518d4ee-49f4-4618-884a-6c4d8f5eb4dc
 
 Smooth Life is a continous version of Conway's Game of Life where cells live in a floating-point domain. This project visualizes the dynamics inside such game in real-time.
 
