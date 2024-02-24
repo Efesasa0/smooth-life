@@ -3,7 +3,7 @@ from scipy.signal import convolve2d
 import matplotlib.pyplot as plt
 np.random.seed(1)
 
-from smooths import sigma, sigman, sigmam, s
+from smooths import s
 from kernels import circular_kernel_pair
 
 def initialize_state(height, width, r_a, factor, mask_ratio, organism_count):
@@ -24,8 +24,8 @@ def run_sim(sim_state, s_kernel, b_kernel, B1, D1, B2, D2, alpha_n, alpha_m):
     N = s_kernel.sum().sum()
     m = convolve2d(sim_state, b_kernel, mode='same')
     M = b_kernel.sum().sum()
-    n = n/N
-    m = m/M
+    n = n / N
+    m = m / M
     apply_s_func = np.vectorize(s)
     q = apply_s_func(n, m, B1 ,D1, B2, D2, alpha_n, alpha_m)
     sim_state_diff= 2*q-1
@@ -42,7 +42,7 @@ def get_next_state(height ,width, r_a, factor, mask_ratio, alpha_n, alpha_m, b1,
         #print(sim_state_diff)
         sim_state += dt*sim_state_diff
         sim_state[sim_state<0] = 0
-        print(sim_state)
+        #print(sim_state)
         #plt.imshow(sim_state, cmap='gray')
         #plt.axis('off')
         #plt.savefig(f'./ims/output_image{i:06d}.jpg', bbox_inches='tight', pad_inches=0)

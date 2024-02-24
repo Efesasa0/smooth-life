@@ -12,11 +12,9 @@ d1 = solara.reactive(0.05)
 d2 = solara.reactive(0.05)
 dt = solara.reactive(0.05)
 
-
-
 @solara.component
 def Page():
-    with solara.Columns([20, 20, 60]):
+    with solara.Columns([20, 60, 20]):
         with solara.Column():
             solara.Markdown("""
 # About Smooth Life 🪱
@@ -26,7 +24,7 @@ Rather then a single pixel/cell having 0 or 1 value, their death/alive status is
                             
 Additionaly, the kernels used to calculate the state value via simple convolution are circular, making the results smoother.""")
             solara.Markdown("""
-# Parameter Details
+### Parameter Details
 * `r_a`: Radius for activity calculation. Affects the local neighborhood size.
 * `factor`: Scaling factor for the inner kernel radius, influencing core interaction.
 * `mask_ratio`: Determines the density of initial organism distribution.
@@ -36,6 +34,8 @@ Additionaly, the kernels used to calculate the state value via simple convolutio
 * `b1`, `b2`: Birth thresholds. Values between which a cell starts birth process.
 * `d1`, `d2`: Death thresholds. Defines the range for cell death.
 * `dt`: Time step for simulation updates, influencing the speed of state changes.""")
+        with solara.Column():
+            solara.HTML(tag="div", unsafe_innerHTML=f'<iframe src="http://127.0.0.1:5000/?r_a={r_a.value}&factor={factor.value}&mask_ratio={mask_ratio.value}&organism_count={organism_count.value}&alpha_n={alpha_n.value}&alpha_m={alpha_m.value}&b1={b1.value}&b2={b2.value}&d1={d1.value}&d2={d2.value}&dt={dt.value}" width=1000 height=1000></iframe>')
         with solara.Column():
             solara.Markdown("""
 # Tune the Parameters.
@@ -50,8 +50,4 @@ Note: Each action, will refresh the simulation.""")
             solara.SliderFloat("b2", value=b2, min=0, max=1, step= 0.001, thumb_label="always")
             solara.SliderFloat("d1", value=d1, min=0, max=1, step= 0.001, thumb_label="always")
             solara.SliderFloat("d2", value=d2, min=0, max=1, step= 0.001, thumb_label="always")
-            solara.SliderFloat("dt", value=d2, min=0, max=1, step= 0.001, thumb_label="always")
-
-
-        with solara.Column():
-            solara.HTML(tag="div", unsafe_innerHTML=f'<iframe src="http://127.0.0.1:5000/?r_a={r_a.value}&factor={factor.value}&mask_ratio={mask_ratio.value}&organism_count={organism_count.value}&alpha_n={alpha_n.value}&alpha_m={alpha_m.value}&b1={b1.value}&b2={b2.value}&d1={d1.value}&d2={d2.value}&dt={dt.value}" width=800 height=800></iframe>')
+            solara.SliderFloat("dt", value=dt, min=0, max=2, step= 0.001, thumb_label="always")
