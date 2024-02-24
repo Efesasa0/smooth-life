@@ -1,3 +1,13 @@
+---
+title: Smooth
+emoji: 🪱
+colorFrom: red
+colorTo: red
+sdk: docker
+pinned: false
+license: mit
+---
+
 # Smooth Life 🪱
 
 https://github.com/Efesasa0/smooth-life/assets/70029284/7518d4ee-49f4-4618-884a-6c4d8f5eb4dc
